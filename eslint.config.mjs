@@ -2,15 +2,6 @@ import { FlatCompat } from '@eslint/eslintrc';
 import tsParser from '@typescript-eslint/parser';
 import prettierPlugin from 'eslint-plugin-prettier';
 import tseslint from 'typescript-eslint';
-import { init as initKafkaAuthPlugin } from '@sygnum/custody-backend-common/dist/eslint-kafka-auth-plugin/plugin.js';
-// TODO: re-enable import plugin after https://github.com/import-js/eslint-plugin-import/pull/2829
-// import importPlugin from 'eslint-plugin-import';
-
-const kafkaAuthPlugin = await initKafkaAuthPlugin().catch((err) => {
-  console.warn(`WARNING: Initializing kafka auth plugin failed; kafka topic authorization won't be checked. Reason: ${err}`);
-  return undefined;
-});
-
 const compat = new FlatCompat();
 
 export default tseslint.config(
