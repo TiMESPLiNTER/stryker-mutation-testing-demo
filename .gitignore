@@ -1,5 +1,6 @@
 # compiled output
 /dist
+/reports
 /node_modules
 /src/generated
 
